@@ -409,6 +409,12 @@ func ForKind(kind schema.GroupVersionKind) interface{} {
 		return &configv1alpha1.ClusterImagePolicySpecApplyConfiguration{}
 	case v1alpha1.SchemeGroupVersion.WithKind("ClusterImagePolicyStatus"):
 		return &configv1alpha1.ClusterImagePolicyStatusApplyConfiguration{}
+	case v1alpha1.SchemeGroupVersion.WithKind("ControlPlaneUpdateStatus"):
+		return &configv1alpha1.ControlPlaneUpdateStatusApplyConfiguration{}
+	case v1alpha1.SchemeGroupVersion.WithKind("ControlPlaneUpdateStatusSummary"):
+		return &configv1alpha1.ControlPlaneUpdateStatusSummaryApplyConfiguration{}
+	case v1alpha1.SchemeGroupVersion.WithKind("ControlPlaneUpdateVersions"):
+		return &configv1alpha1.ControlPlaneUpdateVersionsApplyConfiguration{}
 	case v1alpha1.SchemeGroupVersion.WithKind("EtcdBackupSpec"):
 		return &configv1alpha1.EtcdBackupSpecApplyConfiguration{}
 	case v1alpha1.SchemeGroupVersion.WithKind("FulcioCAWithRekor"):
@@ -437,14 +443,34 @@ func ForKind(kind schema.GroupVersionKind) interface{} {
 		return &configv1alpha1.PolicyMatchRemapIdentityApplyConfiguration{}
 	case v1alpha1.SchemeGroupVersion.WithKind("PolicyRootOfTrust"):
 		return &configv1alpha1.PolicyRootOfTrustApplyConfiguration{}
+	case v1alpha1.SchemeGroupVersion.WithKind("PoolResourceRef"):
+		return &configv1alpha1.PoolResourceRefApplyConfiguration{}
+	case v1alpha1.SchemeGroupVersion.WithKind("PoolUpdateStatus"):
+		return &configv1alpha1.PoolUpdateStatusApplyConfiguration{}
 	case v1alpha1.SchemeGroupVersion.WithKind("PublicKey"):
 		return &configv1alpha1.PublicKeyApplyConfiguration{}
+	case v1alpha1.SchemeGroupVersion.WithKind("ResourceRef"):
+		return &configv1alpha1.ResourceRefApplyConfiguration{}
 	case v1alpha1.SchemeGroupVersion.WithKind("RetentionNumberConfig"):
 		return &configv1alpha1.RetentionNumberConfigApplyConfiguration{}
 	case v1alpha1.SchemeGroupVersion.WithKind("RetentionPolicy"):
 		return &configv1alpha1.RetentionPolicyApplyConfiguration{}
 	case v1alpha1.SchemeGroupVersion.WithKind("RetentionSizeConfig"):
 		return &configv1alpha1.RetentionSizeConfigApplyConfiguration{}
+	case v1alpha1.SchemeGroupVersion.WithKind("UpdateInformer"):
+		return &configv1alpha1.UpdateInformerApplyConfiguration{}
+	case v1alpha1.SchemeGroupVersion.WithKind("UpdateInsight"):
+		return &configv1alpha1.UpdateInsightApplyConfiguration{}
+	case v1alpha1.SchemeGroupVersion.WithKind("UpdateInsightImpact"):
+		return &configv1alpha1.UpdateInsightImpactApplyConfiguration{}
+	case v1alpha1.SchemeGroupVersion.WithKind("UpdateInsightRemediation"):
+		return &configv1alpha1.UpdateInsightRemediationApplyConfiguration{}
+	case v1alpha1.SchemeGroupVersion.WithKind("UpdateInsightScope"):
+		return &configv1alpha1.UpdateInsightScopeApplyConfiguration{}
+	case v1alpha1.SchemeGroupVersion.WithKind("UpdateStatus"):
+		return &configv1alpha1.UpdateStatusApplyConfiguration{}
+	case v1alpha1.SchemeGroupVersion.WithKind("UpdateStatusStatus"):
+		return &configv1alpha1.UpdateStatusStatusApplyConfiguration{}
 
 	}
 	return nil
