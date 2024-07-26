@@ -33,6 +33,10 @@ func ForKind(kind schema.GroupVersionKind) interface{} {
 		return &operatorv1.AWSCSIDriverConfigSpecApplyConfiguration{}
 	case v1.SchemeGroupVersion.WithKind("AWSLoadBalancerParameters"):
 		return &operatorv1.AWSLoadBalancerParametersApplyConfiguration{}
+	case v1.SchemeGroupVersion.WithKind("AWSNetworkLoadBalancerParameters"):
+		return &operatorv1.AWSNetworkLoadBalancerParametersApplyConfiguration{}
+	case v1.SchemeGroupVersion.WithKind("AWSSubnets"):
+		return &operatorv1.AWSSubnetsApplyConfiguration{}
 	case v1.SchemeGroupVersion.WithKind("AzureCSIDriverConfigSpec"):
 		return &operatorv1.AzureCSIDriverConfigSpecApplyConfiguration{}
 	case v1.SchemeGroupVersion.WithKind("AzureDiskEncryptionSet"):

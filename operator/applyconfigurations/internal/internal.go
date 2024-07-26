@@ -151,6 +151,9 @@ var schemaYAML = typed.YAMLObject(`types:
     - name: connectionIdleTimeout
       type:
         namedType: io.k8s.apimachinery.pkg.apis.meta.v1.Duration
+    - name: subnets
+      type:
+        namedType: com.github.openshift.api.operator.v1.AWSSubnets
 - name: com.github.openshift.api.operator.v1.AWSLoadBalancerParameters
   map:
     fields:
@@ -173,16 +176,31 @@ var schemaYAML = typed.YAMLObject(`types:
         discriminatorValue: NetworkLoadBalancerParameters
 - name: com.github.openshift.api.operator.v1.AWSNetworkLoadBalancerParameters
   map:
-    elementType:
-      scalar: untyped
-      list:
-        elementType:
-          namedType: __untyped_atomic_
-        elementRelationship: atomic
-      map:
-        elementType:
-          namedType: __untyped_deduced_
-        elementRelationship: separable
+    fields:
+    - name: eipAllocations
+      type:
+        list:
+          elementType:
+            scalar: string
+          elementRelationship: atomic
+    - name: subnets
+      type:
+        namedType: com.github.openshift.api.operator.v1.AWSSubnets
+- name: com.github.openshift.api.operator.v1.AWSSubnets
+  map:
+    fields:
+    - name: ids
+      type:
+        list:
+          elementType:
+            scalar: string
+          elementRelationship: atomic
+    - name: names
+      type:
+        list:
+          elementType:
+            scalar: string
+          elementRelationship: atomic
 - name: com.github.openshift.api.operator.v1.AccessLogging
   map:
     fields:
@@ -1697,7 +1715,9 @@ var schemaYAML = typed.YAMLObject(`types:
         list:
           elementType:
             namedType: com.github.openshift.api.operator.v1.OperatorCondition
-          elementRelationship: atomic
+          elementRelationship: associative
+          keys:
+          - type
     - name: domain
       type:
         scalar: string
