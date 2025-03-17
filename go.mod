@@ -67,4 +67,4 @@ retract v3.9.0+incompatible
 // retracted by itself.
 retract v0.0.1
 
-replace github.com/openshift/api => github.com/petr-muller/api v0.0.0-20250311172725-8495ca67b053
+replace github.com/openshift/api => github.com/petr-muller/api v0.0.0-20250327170451-bb998d952ce9
